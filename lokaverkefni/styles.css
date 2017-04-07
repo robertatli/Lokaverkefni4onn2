@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+}
+
+.site{
+    margin-left:10%;padding:1px 16px;height:1000px;
+}
+
+.text{
+    width: 50%
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+header ul li a {
+    display: block;
+    color: #222;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+header ul li a.active {
+    background-color: #222;
+    color: white;
+}
+
+header ul li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+label {
+      display:inline-block;
+      width:125px;
+      text-align:right;
+      padding-right:2px;
+}
+
+input[type="submit"] {
+       margin-left:132px;
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+}
