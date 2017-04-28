@@ -4,10 +4,17 @@
 	 $max = 51200;
 	 if (isset($_POST['upload'])) {
 	 // define the path to the upload folder
-	 $destination = './upload_files/';
-	 // move the file to the upload folder and rename it
-	 move_uploaded_file($_FILES['image']['tmp_name'],
-	 $destination . $_FILES['image']['name']);
+	 $destination = 'upload_files';
+	 require_once 'Upload.php';
+		 try {
+		 	$loader = new Upload($destination);
+		 	$loader->setMaxSize($max);
+		 	$loader->allowAllTypes();
+		 	$loader->upload();
+		 	$result = $loader->getMessages();
+		 } catch (Exception $e) {
+		 	echo $e->getMessage();
+		 }
 	 }
 
 	require "connection.php";
@@ -27,8 +34,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>Verkefni 5</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+
+<?php include 'includes/menu.php' ?>
+<div class="site">
 
 		<!--
 			2. a)  heildarfjöldi mynda úr töflunni myndir úr gagnagrunni.
@@ -132,7 +143,16 @@
 				 <input type="submit" name="upload" id="upload" value="Upload">
 			 </p>
 		</form>
+			<?php
+				if (isset($result)) {
+				 	echo '<ul>';
+				 	foreach ($result as $message) {
+				 		echo "<li>$message</li>";
+				 	}
+				 	echo '</ul>';
+				 } 
+			 ?>
 
-
+</div>
 </body>
 </html>

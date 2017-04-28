@@ -14,9 +14,14 @@
 <head>
 	<title><?php echo htmlentities($imgInfo[0]->image_name); ?></title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
 </head>
 <body>
+<?php include 'includes/menu.php' ?>
+<div class="site">
+
 	<!-- Birtum mynd og myndaupplýsingar. -->
    <figure>
    			<h1><?php echo htmlentities($imgInfo[0]->image_name); ?></h1>
@@ -24,7 +29,7 @@
 		    <figcaption><?php echo htmlentities($imgInfo[0]->image_text); ?></figcaption>
 	</figure>   
 		
-
+</div>
 </body>
 </html>
 

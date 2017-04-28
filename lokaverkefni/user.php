@@ -17,8 +17,11 @@
 	<title>Users</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+<?php include 'includes/menu.php' ?>
+<div class="site">
 
 	<!-- Birtum allar myndir og myndheiti sem notandi á. -->
 	<?php
@@ -33,6 +36,6 @@
 	   }
 	}
 	?>
-
+</div>
 </body>
 </html>
