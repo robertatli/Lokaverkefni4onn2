@@ -8,9 +8,9 @@ class Upload {
         'image/gif',
         'image/jpeg',
         'image/pjpeg',
-        'image/png',
-        'image/jpg'
+        'image/png'
     ];
+
     protected $typeCheckingOn = true;
     protected $notTrusted = ['bin', 'cgi', 'exe', 'js', 'pl', 'php', 'py', 'sh'];
     protected $suffix = '.upload';

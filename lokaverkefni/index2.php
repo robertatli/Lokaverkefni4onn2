@@ -4,7 +4,7 @@
 	 $max = 51200;
 	 if (isset($_POST['upload'])) {
 	 // define the path to the upload folder
-	 $destination = 'upload_files';
+	 $destination = 'upload_files/';
 	 require_once 'Upload.php';
 		 try {
 		 	$loader = new Upload($destination);
