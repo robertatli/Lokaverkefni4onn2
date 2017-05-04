@@ -16,6 +16,37 @@
 		 	echo $e->getMessage();
 		 }
 	 }
+	 if (isset($_POST['upload']) && $_FILES['image']['size'] > 0) {
+	 	$fileName = $_FILES['image']['name'];
+		$tmpName  = $_FILES['image']['tmp_name'];
+		$imageName = $_POST['imageNameInfo'];
+		$imageText = $_POST['imageDescInfo'];
+		$owner_id = 1;
+
+
+		$fp      = fopen($tmpName, 'r');
+		$content = fread($fp, filesize($tmpName));
+		$content = addslashes($content);
+		fclose($fp);
+
+		if(!get_magic_quotes_gpc())
+		{
+		    $fileName = addslashes($fileName);
+		}
+		require 'connection.php';
+
+		$sql = "INSERT INTO images(owner_id, image_name, image_path, image_text)VALUES(:owner_id,:image_name,:image_path,:image_text)";
+		$stmt = $conn->prepare($sql);
+		$stmt->execute(array(':owner_id'=>$owner_id, ':image_name'=>$imageName, ':image_path'=>$fileName, ':image_text'=>$imageText));
+
+		if ($stmt->rowCount() == 1) {
+        	$success = "Mynd hefur verið uploaduð í database";
+    	}else{
+    		echo "<br>File $fileName not uploaded<br>";
+    	}
+
+		
+	 }
 
 	require "connection.php";
 	require "dbqueries.php";
@@ -140,9 +171,17 @@
 				 <input type="file" name="image" id="image">
 			 </p>
 			 <p>
+			 	 <label for="imageNameInfo">Image Name:</label>
+			 	 <input type="text" name="imageNameInfo" id="imageNameInfo" required>
+			 	 <label for="imageDescInfo">Image Description:</label>
+			 	 <input type="text" name="imageDescInfo" id="imageDescInfo" required>
+			 </p>
+			 <p>
 				 <input type="submit" name="upload" id="upload" value="Upload">
 			 </p>
+			 
 		</form>
+
 			<?php
 				if (isset($result)) {
 				 	echo '<ul>';

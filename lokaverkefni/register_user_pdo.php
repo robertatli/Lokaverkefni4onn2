@@ -18,8 +18,7 @@ if (!$passwordOK) {
 if ($password != $retyped) {
     $errors[] = "Your passwords don't match.";
 }
-if (!errors) {
-    echo "Halló";
+if (!$errors) {
     // encrypt password using default encryption
     $password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -30,7 +29,7 @@ if (!errors) {
 	if ($stmt->rowCount() == 1) {
         $success = "$username has been registered. You may now log in.";
     } elseif ($stmt->errorCode() == 23000) {
-        $errors[] = "$username is already in use. Please choose another username.";
+        $errors[] = "$username or email is already in use. Please choose another username or email.";
     } else {
         $errorInfo = $stmt->errorInfo();
         if (isset($errorInfo[2])) {

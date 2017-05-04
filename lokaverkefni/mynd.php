@@ -25,7 +25,7 @@
 	<!-- Birtum mynd og myndaupplýsingar. -->
    <figure>
    			<h1><?php echo htmlentities($imgInfo[0]->image_name); ?></h1>
-		    <img src="img/<?php echo htmlentities($imgInfo[0]->image_path); ?>"/>
+		    <img src="upload_files/<?php echo htmlentities($imgInfo[0]->image_path); ?>"/>
 		    <figcaption><?php echo htmlentities($imgInfo[0]->image_text); ?></figcaption>
 	</figure>   
 		
