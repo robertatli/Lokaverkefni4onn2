@@ -29,7 +29,7 @@
 	   foreach ($userImages as $user) {
 	   ?>
    		<figure>
-		    <img src="img/<?php echo htmlentities($user->image_path);?>"/>
+		    <img src="upload_files/<?php echo htmlentities($user->image_path);?>"/>
 		    <figcaption><?php echo htmlentities($user->image_name);?></figcaption>
 		</figure>   
 	<?php

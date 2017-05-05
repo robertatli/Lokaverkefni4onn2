@@ -156,7 +156,7 @@
 			   foreach ($searchedImages as $img) {
 			   ?>
 		   		<figure>
-				    <img src="img/<?php echo $img->image_path;?>"/>
+				    <img src="upload_files/<?php echo $img->image_path;?>"/>
 				    <figcaption><?php echo htmlentities($img->image_name);?></figcaption>
 				</figure>   
 			<?php
@@ -172,9 +172,9 @@
 			 </p>
 			 <p>
 			 	 <label for="imageNameInfo">Image Name:</label>
-			 	 <input type="text" name="imageNameInfo" id="imageNameInfo" required>
+			 	 <input type="text" name="imageNameInfo" id="imageNameInfo" required><br>
 			 	 <label for="imageDescInfo">Image Description:</label>
-			 	 <input type="text" name="imageDescInfo" id="imageDescInfo" required>
+			 	 <textarea type="text" name="imageDescInfo" id="imageDescInfo" cols="40" rows="5" required></textarea>
 			 </p>
 			 <p>
 				 <input type="submit" name="upload" id="upload" value="Upload">

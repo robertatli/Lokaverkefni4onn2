@@ -98,4 +98,12 @@ function search($conn, $search){
         $result = $query->fetchAll(PDO::FETCH_OBJ);     
         return $result;
 }
+
+function getTotalImages($conn){
+        $sql = 'SELECT count(*) FROM images';
+        $query = $conn->prepare($sql);
+
+        $result = $query->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+}
 ?>

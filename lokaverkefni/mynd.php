@@ -15,8 +15,7 @@
 	<title><?php echo htmlentities($imgInfo[0]->image_name); ?></title>
 	<meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
-
-
+	<link rel="icon" href="https://cdn.betterttv.net/emote/55f491036ed8db8a0a3ee3b3/1x">
 </head>
 <body>
 <?php include 'includes/menu.php' ?>
